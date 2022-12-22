@@ -3,5 +3,8 @@
 
 bool executeF(std::string& data)
 {
-	return true;
+	// -F
+	// (EXP)
+	// id
+	// num
 }

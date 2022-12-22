@@ -1,5 +1,5 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 struct Args
 {
@@ -8,18 +8,18 @@ struct Args
 
 namespace
 {
-    Args ParseArgs(int argc, char** argv)
-    {
-        if (argc != 2)
-        {
-            throw std::invalid_argument("invalid parameters");
-        }
+Args ParseArgs(int argc, char** argv)
+{
+	if (argc != 2)
+	{
+		throw std::invalid_argument("invalid parameters");
+	}
 
-        return {
-                .inputFilename = argv[1]
-        };
-    }
+	return {
+		.inputFilename = argv[1]
+	};
 }
+} // namespace
 
 int main(int argc, char** argv)
 {
@@ -28,11 +28,18 @@ int main(int argc, char** argv)
 		auto const args = ParseArgs(argc, argv);
 		std::ifstream input(args.inputFilename);
 
-        if (!input.is_open())
-        {
-            throw std::runtime_error("Cannot open input file");
-        }
-        std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+		/*
+		 * СЛОВНО ХУЙ ДРОЧЕНЫЙ В ЖОПУ ПИДОРА!!!
+		 * НА ПАРСЕР ЗАДАНИЕ ДАЛИ!!!
+		 * НЕ ОСТАВИВ СТУДЕНТАМ НИ ВЫБОРА!!!
+		 * И ВСЕ КОСТЫЛЕЙ НАКИДАЛИ!!!
+		 */
+
+		if (!input.is_open())
+		{
+			throw std::runtime_error("Cannot open input file");
+		}
+		std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
 	}
 	catch (std::exception const& e)
 	{
