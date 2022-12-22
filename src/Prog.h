@@ -8,12 +8,12 @@
 
 bool executeProg(std::string& data)
 {
-    if (executableHandlers.find(non_terminal_symbols::VAR)->second(data))
+    if (getHandler(non_terminal_symbols::VAR)(data))
     {
         if (data.starts_with(terminal_symbols::BEGIN))
         {
             data.erase(0, terminal_symbols::BEGIN.size() + 1);
-            if (executableHandlers.find(non_terminal_symbols::LISTST)->second(data))
+            if (getHandler(non_terminal_symbols::LISTST)(data))
             {
                 if (data.starts_with(terminal_symbols::END))
                 {

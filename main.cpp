@@ -1,4 +1,5 @@
 #include "src/Common/IFunction.h"
+#include "src/Common/NonTerminalSymbols.h"
 #include <fstream>
 #include <iostream>
 
@@ -24,10 +25,9 @@ Args ParseArgs(int argc, char** argv)
 
 bool execute(std::string& data)
 {
-    std::string test = "adssa";
     if (data.starts_with(non_terminal_symbols::PROG))
     {
-        executableHandlers.find(non_terminal_symbols::PROG)->second(test);
+        getHandler(non_terminal_symbols::PROG)(data);
     }
     return false;
 }
