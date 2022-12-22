@@ -24,8 +24,8 @@ namespace
 
 bool execute(std::string& data)
 {
-//    std::string test = "adssa";
-//    executableHandlers.find(non_terminal_symbols::VAR)->second(test);
+    std::string test = "adssa";
+    executableHandlers.find(non_terminal_symbols::PROG)->second(test);
     return true;
 }
 
