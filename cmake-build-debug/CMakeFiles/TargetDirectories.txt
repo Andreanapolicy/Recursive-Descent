@@ -1,0 +1,3 @@
+C:/Users/daaan/Projects/OS/lab5/RecursiveDescent/cmake-build-debug/CMakeFiles/RecursiveDescent.dir
+C:/Users/daaan/Projects/OS/lab5/RecursiveDescent/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/daaan/Projects/OS/lab5/RecursiveDescent/cmake-build-debug/CMakeFiles/rebuild_cache.dir
