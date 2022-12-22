@@ -9,6 +9,10 @@
 
 using Handler = std::function<bool(std::string&)>;
 
+bool executeVar(std::string& data);
+bool executeProg(std::string& data);
+bool executeListst(std::string& data);
+
 std::map<std::string, Handler> executableHandlers = {
         {non_terminal_symbols::VAR, executeVar},
         {non_terminal_symbols::PROG, executeProg},

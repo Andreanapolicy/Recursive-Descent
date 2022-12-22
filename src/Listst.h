@@ -1,6 +1,6 @@
 #pragma once
 
-bool executeListst(std::string&  data)
+bool executeListst(std::string& data)
 {
     return true;
 }

@@ -25,8 +25,11 @@ namespace
 bool execute(std::string& data)
 {
     std::string test = "adssa";
-    executableHandlers.find(non_terminal_symbols::PROG)->second(test);
-    return true;
+    if (data.starts_with(non_terminal_symbols::PROG))
+    {
+        executableHandlers.find(non_terminal_symbols::PROG)->second(test);
+    }
+    return false;
 }
 
 int main(int argc, char** argv)
