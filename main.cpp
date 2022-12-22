@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "src/Common/IFunction.h"
 
 struct Args
 {
@@ -23,6 +24,8 @@ namespace
 
 bool execute(std::string& data)
 {
+//    std::string test = "adssa";
+//    executableHandlers.find(non_terminal_symbols::VAR)->second(test);
     return true;
 }
 
