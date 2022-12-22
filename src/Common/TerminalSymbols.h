@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+namespace terminal_symbols
+{
 const std::string ID = "id";
 const std::string BEGIN = "begin";
 const std::string END = "end";
@@ -12,6 +14,7 @@ const std::string ASSIGMENT = ":=";
 const std::string PLUS = "+";
 const std::string MINUS = "-";
 const std::string MULTIPLY = "*";
+}
 
 bool executeId(std::string& data)
 {

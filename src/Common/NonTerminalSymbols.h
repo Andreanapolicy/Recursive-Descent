@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 
+namespace non_terminal_symbols
+{
 const std::string PROG = "PROG";
 const std::string VAR = "VAR";
 const std::string LISTST = "LISTST";
@@ -13,3 +15,4 @@ const std::string ASSIGN = "ASSIGN";
 const std::string EXP = "EXP";
 const std::string T = "T";
 const std::string F = "F";
+}
