@@ -32,6 +32,7 @@ int main(int argc, char** argv)
         {
             throw std::runtime_error("Cannot open input file");
         }
+        std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
 	}
 	catch (std::exception const& e)
 	{
