@@ -21,6 +21,11 @@ namespace
     }
 }
 
+bool execute(std::string& data)
+{
+    return true;
+}
+
 int main(int argc, char** argv)
 {
 	try
@@ -33,6 +38,10 @@ int main(int argc, char** argv)
             throw std::runtime_error("Cannot open input file");
         }
         std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+        if (!execute(data))
+        {
+            throw std::runtime_error("Program is not correct");
+        }
 	}
 	catch (std::exception const& e)
 	{
