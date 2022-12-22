@@ -13,5 +13,5 @@ bool executeT(std::string& data)
 	auto newTPart = data.substr(0, pos);
 	auto fPart = data.substr(pos);
 
-	return executeT(newTPart) && executeF(fPart);
+	return executeT(newTPart) && executeF(fPart) || executeF(data);
 }

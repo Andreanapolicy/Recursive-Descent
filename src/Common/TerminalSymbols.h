@@ -15,7 +15,9 @@ const std::string ASSIGMENT = ":=";
 const std::string PLUS = "+";
 const std::string MINUS = "-";
 const std::string MULTIPLY = "*";
-}
+const std::string OPENING_BRACE = "(";
+const std::string CLOSING_BRACE = ")";
+} // namespace terminal_symbols
 
 bool isAlphaNumeric(std::string const& data)
 {

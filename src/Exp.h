@@ -13,5 +13,5 @@ bool executeExp(std::string& data)
 	auto newExpPart = data.substr(0, pos);
 	auto tPart = data.substr(pos);
 
-	return executeExp(newExpPart) && executeT(tPart);
+	return executeExp(newExpPart) && executeT(tPart) || executeT(data);
 }
