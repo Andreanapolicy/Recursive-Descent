@@ -1,5 +1,6 @@
-#include <fstream>
 #include "src/Common/IFunction.h"
+#include <fstream>
+#include <iostream>
 
 struct Args
 {
@@ -35,22 +36,22 @@ int main(int argc, char** argv)
 		auto const args = ParseArgs(argc, argv);
 		std::ifstream input(args.inputFilename);
 
-				/*
-				 * СЛОВНО ХУЙ ДРОЧЕНЫЙ В ЖОПУ ПИДОРА!!!
-				 * НА ПАРСЕР ЗАДАНИЕ ДАЛИ!!!
-				 * НЕ ОСТАВИВ СТУДЕНТАМ НИ ВЫБОРА!!!
-				 * И ВСЕ КОСТЫЛЕЙ НАКИДАЛИ!!!
-				 */
+		/*
+		 * СЛОВНО ХУЙ ДРОЧЕНЫЙ В ЖОПУ ПИДОРА!!!
+		 * НА ПАРСЕР ЗАДАНИЕ ДАЛИ!!!
+		 * НЕ ОСТАВИВ СТУДЕНТАМ НИ ВЫБОРА!!!
+		 * И ВСЕ КОСТЫЛЕЙ НАКИДАЛИ!!!
+		 */
 
-        if (!input.is_open())
-        {
-            throw std::runtime_error("Cannot open input file");
-        }
-        std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
-        if (!execute(data))
-        {
-            throw std::runtime_error("Program is not correct");
-        }
+		if (!input.is_open())
+		{
+			throw std::runtime_error("Cannot open input file");
+		}
+		std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+		if (!execute(data))
+		{
+			throw std::runtime_error("Program is not correct");
+		}
 	}
 	catch (std::exception const& e)
 	{
