@@ -1,5 +1,5 @@
 #include <fstream>
-#include <iostream>
+#include "src/Common/IFunction.h"
 
 struct Args
 {
@@ -21,6 +21,13 @@ Args ParseArgs(int argc, char** argv)
 }
 } // namespace
 
+bool execute(std::string& data)
+{
+    std::string test = "adssa";
+    executableHandlers.find(non_terminal_symbols::PROG)->second(test);
+    return true;
+}
+
 int main(int argc, char** argv)
 {
 	try
@@ -28,18 +35,22 @@ int main(int argc, char** argv)
 		auto const args = ParseArgs(argc, argv);
 		std::ifstream input(args.inputFilename);
 
-		/*
-		 * СЛОВНО ХУЙ ДРОЧЕНЫЙ В ЖОПУ ПИДОРА!!!
-		 * НА ПАРСЕР ЗАДАНИЕ ДАЛИ!!!
-		 * НЕ ОСТАВИВ СТУДЕНТАМ НИ ВЫБОРА!!!
-		 * И ВСЕ КОСТЫЛЕЙ НАКИДАЛИ!!!
-		 */
+				/*
+				 * СЛОВНО ХУЙ ДРОЧЕНЫЙ В ЖОПУ ПИДОРА!!!
+				 * НА ПАРСЕР ЗАДАНИЕ ДАЛИ!!!
+				 * НЕ ОСТАВИВ СТУДЕНТАМ НИ ВЫБОРА!!!
+				 * И ВСЕ КОСТЫЛЕЙ НАКИДАЛИ!!!
+				 */
 
-		if (!input.is_open())
-		{
-			throw std::runtime_error("Cannot open input file");
-		}
-		std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+        if (!input.is_open())
+        {
+            throw std::runtime_error("Cannot open input file");
+        }
+        std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+        if (!execute(data))
+        {
+            throw std::runtime_error("Program is not correct");
+        }
 	}
 	catch (std::exception const& e)
 	{
