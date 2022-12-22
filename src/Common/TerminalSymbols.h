@@ -12,3 +12,13 @@ const std::string ASSIGMENT = ":=";
 const std::string PLUS = "+";
 const std::string MINUS = "-";
 const std::string MULTIPLY = "*";
+
+bool executeId(std::string& data)
+{
+	return true;
+}
+
+bool executeNum(std::string& data)
+{
+	return true;
+}
