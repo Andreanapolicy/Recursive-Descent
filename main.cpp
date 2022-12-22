@@ -1,18 +1,37 @@
 #include <iostream>
+#include <fstream>
 
 struct Args
 {
 	std::string inputFilename;
 };
 
-Args ParseArgs(int argc, char** argv);
+namespace
+{
+    Args ParseArgs(int argc, char** argv)
+    {
+        if (argc != 2)
+        {
+            throw std::invalid_argument("invalid parameters");
+        }
+
+        return {
+                .inputFilename = argv[1]
+        };
+    }
+}
 
 int main(int argc, char** argv)
 {
 	try
 	{
 		auto const args = ParseArgs(argc, argv);
-		// TODO: add entry point to functions
+		std::ifstream input(args.inputFilename);
+
+        if (!input.is_open())
+        {
+            throw std::runtime_error("Cannot open input file");
+        }
 	}
 	catch (std::exception const& e)
 	{
@@ -21,16 +40,4 @@ int main(int argc, char** argv)
 	}
 
 	return EXIT_SUCCESS;
-}
-
-Args ParseArgs(int argc, char** argv)
-{
-	if (argc != 2)
-	{
-		throw std::invalid_argument("invalid parameters");
-	}
-
-	return {
-		.inputFilename = argv[1]
-	};
 }
