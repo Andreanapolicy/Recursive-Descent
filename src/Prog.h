@@ -2,7 +2,6 @@
 #include "./Common/IFunction.h"
 #include "./Common/TerminalSymbols.h"
 #include "./Common/NonTerminalSymbols.h"
-#include <iostream>
 
 // <PROG>->PROG id <VAR> begin <LISTST> end
 
