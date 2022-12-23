@@ -5,6 +5,7 @@
 
 namespace terminal_symbols
 {
+const std::string PROG = "PROG";
 const std::string ID = "id";
 const std::string BEGIN = "begin";
 const std::string END = "end";
