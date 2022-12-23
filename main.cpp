@@ -40,10 +40,12 @@ int main(int argc, char** argv)
 		std::ifstream input(args.inputFilename);
 
 		/*
+		 * ♥♥♥
 		 * СЛОВНО ХУЙ ДРОЧЕНЫЙ В ЖОПУ ПИДОРА!!!
 		 * НА ПАРСЕР ЗАДАНИЕ ДАЛИ!!!
 		 * НЕ ОСТАВИВ СТУДЕНТАМ НИ ВЫБОРА!!!
 		 * И ВСЕ КОСТЫЛЕЙ НАКИДАЛИ!!!
+		 * ♥♥♥
 		 */
 
 		if (!input.is_open())
