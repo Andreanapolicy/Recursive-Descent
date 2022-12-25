@@ -24,11 +24,7 @@ Args ParseArgs(int argc, char** argv)
 
 bool execute(std::string& data)
 {
-	if (data.starts_with(non_terminal_symbols::PROG))
-	{
-		getHandler(non_terminal_symbols::PROG)(data);
-	}
-	return false;
+	return getHandler(non_terminal_symbols::PROG)(data);
 }
 } // namespace
 
