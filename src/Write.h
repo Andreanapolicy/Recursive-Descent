@@ -21,11 +21,24 @@ bool executeWrite(std::string& data)
 	}
 	data.erase(0, terminal_symbols::OPENING_BRACE.size());
 
-	auto const pos = data.find(terminal_symbols::CLOSING_BRACE);
-	if (pos == std::string::npos || !data.ends_with(terminal_symbols::SEMICOLON))
+	auto const bracePos = data.find(terminal_symbols::CLOSING_BRACE);
+	if (bracePos == std::string::npos)
 	{
 		return false;
 	}
 
-	return true;
+	auto idList = data.substr(0, bracePos);
+	if (!getHandler(non_terminal_symbols::IDLIST))
+	{
+		return false;
+	}
+
+	if (!data.starts_with(terminal_symbols::SEMICOLON))
+	{
+		return false;
+	}
+
+	removeBlanks(data);
+
+	return data.empty();
 }
