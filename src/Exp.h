@@ -1,6 +1,7 @@
 #pragma once
+#include "Common/IFunction.h"
+#include "Common/NonTerminalSymbols.h"
 #include "Common/TerminalSymbols.h"
-#include "T.h"
 
 bool executeExp(std::string& data)
 {
@@ -13,5 +14,7 @@ bool executeExp(std::string& data)
 	auto newExpPart = data.substr(0, pos);
 	auto tPart = data.substr(pos);
 
-	return executeExp(newExpPart) && executeT(tPart) || executeT(data);
+	auto const tHandler = getHandler(non_terminal_symbols::T);
+
+	return executeExp(newExpPart) && tHandler(tPart) || tHandler(data);
 }

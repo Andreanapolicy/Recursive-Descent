@@ -1,5 +1,7 @@
 #pragma once
-#include "Exp.h"
+#include "Common/IFunction.h"
+#include "Common/NonTerminalSymbols.h"
+#include "Common/TerminalSymbols.h"
 
 bool executeF(std::string& data)
 {
@@ -15,7 +17,8 @@ bool executeF(std::string& data)
 	if (openingBracePos != std::string::npos && closingBracePos != std::string::npos)
 	{
 		auto expPart = data.substr(openingBracePos, closingBracePos - openingBracePos);
-		return executeExp(expPart);
+		auto const expHandler = getHandler(non_terminal_symbols::EXP);
+		return expHandler(expPart);
 	}
 
 	return executeId(data) || executeNum(data);
