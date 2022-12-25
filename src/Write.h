@@ -10,32 +10,32 @@ bool executeWrite(std::string& data)
 
 	if (!data.starts_with(terminal_symbols::WRITE))
 	{
-		return false;
+		throw std::runtime_error("Cannot find `WRITE` in write");
 	}
 	data.erase(0, terminal_symbols::WRITE.size());
 	removeBlanks(data);
 
 	if (!data.starts_with(terminal_symbols::OPENING_BRACE))
 	{
-		return false;
+		throw std::runtime_error("Cannot find opening brace in write");
 	}
 	data.erase(0, terminal_symbols::OPENING_BRACE.size());
 
 	auto const bracePos = data.find(terminal_symbols::CLOSING_BRACE);
 	if (bracePos == std::string::npos)
 	{
-		return false;
+		throw std::runtime_error("Cannot find closing brace in write");
 	}
 
 	auto idList = data.substr(0, bracePos);
 	if (!getHandler(non_terminal_symbols::IDLIST)(idList))
 	{
-		return false;
+		throw std::runtime_error("Id list is not correct in write");
 	}
 
 	if (!data.starts_with(terminal_symbols::SEMICOLON))
 	{
-		return false;
+		throw std::runtime_error("Cannot find semicolon in write");
 	}
 
 	removeBlanks(data);
