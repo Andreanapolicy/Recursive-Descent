@@ -3,13 +3,13 @@
 #include <fstream>
 #include <iostream>
 
+namespace
+{
 struct Args
 {
 	std::string inputFilename;
 };
 
-namespace
-{
 Args ParseArgs(int argc, char** argv)
 {
 	if (argc != 2)
