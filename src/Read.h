@@ -28,7 +28,7 @@ bool executeRead(std::string& data)
 	}
 
 	auto idList = data.substr(0, bracePos);
-	if (!getHandler(non_terminal_symbols::IDLIST))
+	if (!getHandler(non_terminal_symbols::IDLIST)(idList))
 	{
 		return false;
 	}

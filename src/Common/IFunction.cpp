@@ -8,6 +8,7 @@
 #include "../Write.h"
 #include "../Read.h"
 #include "../Assign.h"
+#include "../Exp.h"
 #include <map>
 
 std::map<std::string, Handler> executableHandlers = {
@@ -19,6 +20,7 @@ std::map<std::string, Handler> executableHandlers = {
 		{non_terminal_symbols::WRITE, executeWrite},
 		{non_terminal_symbols::READ, executeRead},
 		{non_terminal_symbols::ASSIGN, executeAssign},
+		{non_terminal_symbols::EXP, executeExp},
 };
 
 Handler getHandler(const std::string& symbols)
