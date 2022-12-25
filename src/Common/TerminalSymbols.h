@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <cctype>
 #include <string>
+#include "Utils.h"
 
 namespace terminal_symbols
 {
@@ -22,18 +23,12 @@ const std::string MINUS = "-";
 const std::string MULTIPLY = "*";
 const std::string OPENING_BRACE = "(";
 const std::string CLOSING_BRACE = ")";
+const std::string WRITE = ")";
+const std::string READ = ")";
+const std::string ASSIGN = ":=";
 } // namespace terminal_symbols
 
-bool isAlphaNumeric(std::string const& data)
-{
-	return std::find_if(
-			   data.begin(),
-			   data.end(),
-			   [](char c) { return !(std::isalnum(c) || (c == ' ')); })
-		== data.end();
-}
-
-bool executeId(std::string& data)
+bool executeId(const std::string& data)
 {
 	if (data.length() == 0)
 	{
@@ -48,7 +43,7 @@ bool executeId(std::string& data)
 	return isAlphaNumeric(data);
 }
 
-bool executeNum(std::string& data)
+bool executeNum(const std::string& data)
 {
 	try
 	{
