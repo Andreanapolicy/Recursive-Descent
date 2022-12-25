@@ -16,16 +16,15 @@ const std::string FLOAT = "float";
 const std::string BOOL = "bool";
 const std::string STRING = "string";
 const std::string COLON = ":";
-const std::string SEMICOLON = ":";
+const std::string SEMICOLON = ";";
 const std::string ASSIGMENT = ":=";
 const std::string PLUS = "+";
 const std::string MINUS = "-";
 const std::string MULTIPLY = "*";
 const std::string OPENING_BRACE = "(";
 const std::string CLOSING_BRACE = ")";
-const std::string WRITE = ")";
-const std::string READ = ")";
-const std::string ASSIGN = ":=";
+const std::string WRITE = "WRITE";
+const std::string READ = "READ";
 } // namespace terminal_symbols
 
 bool executeId(const std::string& data)
