@@ -1,7 +1,21 @@
 #pragma once
-#include <string>
+#include "./Common/IFunction.h"
+#include "./Common/TerminalSymbols.h"
+#include "./Common/NonTerminalSymbols.h"
 
 bool executeSt(std::string& data)
 {
-    return true;
+    if (data.starts_with(non_terminal_symbols::READ))
+    {
+        return getHandler(non_terminal_symbols::READ)(data);
+    }
+    if (data.starts_with(non_terminal_symbols::WRITE))
+    {
+        return getHandler(non_terminal_symbols::WRITE)(data);
+    }
+    if (data.find(terminal_symbols::ASSIGMENT) != std::string::npos)
+    {
+        return getHandler(non_terminal_symbols::ASSIGN)(data);
+    }
+    return false;
 }

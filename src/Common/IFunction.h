@@ -1,6 +1,7 @@
 #pragma
 #include <string>
 #include <functional>
+#include <stdexcept>
 
 using Handler = std::function<bool(std::string&)>;
 

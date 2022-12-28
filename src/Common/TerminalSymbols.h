@@ -25,6 +25,7 @@ const std::string OPENING_BRACE = "(";
 const std::string CLOSING_BRACE = ")";
 const std::string WRITE = "WRITE";
 const std::string READ = "READ";
+const std::string COMMA = ",";
 } // namespace terminal_symbols
 
 bool executeId(const std::string& data)

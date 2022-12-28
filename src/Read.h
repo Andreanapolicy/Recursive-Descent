@@ -32,12 +32,12 @@ bool executeRead(std::string& data)
 	{
 		throw std::runtime_error("Id list is not correct in read");
 	}
-
+    data.erase(0, bracePos + 1);
 	if (!data.starts_with(terminal_symbols::SEMICOLON))
 	{
 		throw std::runtime_error("Cannot find semicolon in read");
 	}
-
+    data.erase(0, terminal_symbols::SEMICOLON.size());
 	removeBlanks(data);
 
 	return data.empty();

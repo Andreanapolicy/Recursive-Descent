@@ -9,6 +9,9 @@
 #include "../Read.h"
 #include "../Assign.h"
 #include "../Exp.h"
+#include "../St.h"
+#include "../T.h"
+#include "../F.h"
 #include <map>
 
 std::map<std::string, Handler> executableHandlers = {
@@ -21,6 +24,9 @@ std::map<std::string, Handler> executableHandlers = {
 		{non_terminal_symbols::READ, executeRead},
 		{non_terminal_symbols::ASSIGN, executeAssign},
 		{non_terminal_symbols::EXP, executeExp},
+		{non_terminal_symbols::ST, executeSt},
+		{non_terminal_symbols::T, executeT},
+		{non_terminal_symbols::F, executeF}
 };
 
 Handler getHandler(const std::string& symbols)
