@@ -13,7 +13,7 @@ bool executeExp(std::string& data)
 	}
 
 	auto newExpPart = data.substr(0, pos);
-	auto tPart = data.substr(pos);
+	auto tPart = data.substr(pos + 1);
 	auto dataCopy = data;
 	data.clear();
 

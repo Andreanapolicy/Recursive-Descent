@@ -13,7 +13,7 @@ bool executeT(std::string& data)
 	}
 
 	auto newTPart = data.substr(0, pos);
-	auto fPart = data.substr(pos);
+	auto fPart = data.substr(pos + 1);
 	auto dataCopy = data;
 	data.clear();
 
