@@ -17,7 +17,7 @@ bool executeF(std::string& data)
 	auto const closingBracePos = data.find_last_of(terminal_symbols::CLOSING_BRACE);
 	if (openingBracePos != std::string::npos && closingBracePos != std::string::npos)
 	{
-		auto expPart = data.substr(openingBracePos, closingBracePos - openingBracePos);
+		auto expPart = data.substr(openingBracePos + 1, closingBracePos - openingBracePos - 1);
 		data.clear();
 		auto const expHandler = getHandler(non_terminal_symbols::EXP);
 		return expHandler(expPart);
