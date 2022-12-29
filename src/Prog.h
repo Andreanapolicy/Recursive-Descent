@@ -14,12 +14,16 @@ bool executeProg(std::string& data)
 
 		if (getHandler(non_terminal_symbols::VAR)(data))
 		{
+			removeBlanks(data);
+
 			if (data.starts_with(terminal_symbols::BEGIN))
 			{
 				// "begin "
 				data.erase(0, terminal_symbols::BEGIN.size() + 1);
 				if (getHandler(non_terminal_symbols::LISTST)(data))
 				{
+					removeBlanks(data);
+
 					if (data.starts_with(terminal_symbols::END))
 					{
 						// "end "

@@ -8,8 +8,8 @@ namespace terminal_symbols
 {
 const std::string PROG = "PROG";
 const std::string ID = "id";
-const std::string BEGIN = "begin";
-const std::string END = "end";
+const std::string BEGIN = "BEGIN";
+const std::string END = "END";
 const std::string VAR = "VAR";
 const std::string INT = "int";
 const std::string FLOAT = "float";

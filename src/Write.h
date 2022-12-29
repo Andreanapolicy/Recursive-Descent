@@ -33,6 +33,8 @@ bool executeWrite(std::string& data)
 		throw std::runtime_error("Id list is not correct in write");
 	}
     data.erase(0, bracePos + 1);
+	removeBlanks(data);
+
 	if (!data.starts_with(terminal_symbols::SEMICOLON))
 	{
 		throw std::runtime_error("Cannot find semicolon in write");

@@ -5,7 +5,8 @@
 
 bool executeListst(std::string& data)
 {
-    if (data.starts_with(terminal_symbols::END))
+	removeBlanks(data);
+	if (data.starts_with(terminal_symbols::END))
     {
         return true;
     }

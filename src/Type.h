@@ -8,12 +8,14 @@
 
 bool executeType(std::string& data)
 {
-    if (data.starts_with(terminal_symbols::INT))
+	removeBlanks(data);
+	if (data.starts_with(terminal_symbols::INT))
 	{
 		// "int"
 		data.erase(0, terminal_symbols::INT.size());
 		return true;
 	}
+	removeBlanks(data);
 
 	if (data.starts_with(terminal_symbols::FLOAT))
 	{
@@ -21,6 +23,7 @@ bool executeType(std::string& data)
 		data.erase(0, terminal_symbols::FLOAT.size());
 		return true;
 	}
+	removeBlanks(data);
 
 	if (data.starts_with(terminal_symbols::BOOL))
 	{
@@ -28,6 +31,7 @@ bool executeType(std::string& data)
 		data.erase(0, terminal_symbols::BOOL.size());
 		return true;
 	}
+	removeBlanks(data);
 
 	if (data.starts_with(terminal_symbols::STRING))
 	{

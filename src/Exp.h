@@ -6,15 +6,15 @@
 bool executeExp(std::string& data)
 {
 	auto const pos = data.find(terminal_symbols::PLUS);
+	auto const tHandler = getHandler(non_terminal_symbols::T);
 	if (pos == std::string::npos)
 	{
-		return false;
+		return tHandler(data);
 	}
 
 	auto newExpPart = data.substr(0, pos);
 	auto tPart = data.substr(pos);
 
-	auto const tHandler = getHandler(non_terminal_symbols::T);
 
 	return executeExp(newExpPart) && tHandler(tPart) || tHandler(data);
 }

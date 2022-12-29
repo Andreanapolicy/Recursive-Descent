@@ -6,15 +6,14 @@
 bool executeT(std::string& data)
 {
 	auto const pos = data.find(terminal_symbols::MULTIPLY);
+	auto const fHandler = getHandler(non_terminal_symbols::F);
 	if (pos == std::string::npos)
 	{
-		return false;
+		return fHandler(data);
 	}
 
 	auto newTPart = data.substr(0, pos);
 	auto fPart = data.substr(pos);
-
-	auto const fHandler = getHandler(non_terminal_symbols::F);
 
 	return executeT(newTPart) && fHandler(fPart) || fHandler(data);
 }

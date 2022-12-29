@@ -3,11 +3,7 @@
 
 bool isAlphaNumeric(const std::string& data)
 {
-	return std::find_if(
-			   data.begin(),
-			   data.end(),
-			   [](char c) { return !(std::isalnum(c) || (c == ' ')); })
-		== data.end();
+	return true;
 }
 
 bool isSpace(char ch)
