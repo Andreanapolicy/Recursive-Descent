@@ -5,15 +5,19 @@
 
 bool executeT(std::string& data)
 {
-	auto const pos = data.find(terminal_symbols::MULTIPLY);
+	removeBlanks(data);
+
+	auto const plusPos = data.find(terminal_symbols::PLUS);
+	auto const multiplyPos = data.find(terminal_symbols::MULTIPLY);
+
 	auto const fHandler = getHandler(non_terminal_symbols::F);
-	if (pos == std::string::npos)
+	if (multiplyPos == std::string::npos || multiplyPos > plusPos)
 	{
 		return fHandler(data);
 	}
 
-	auto newTPart = data.substr(0, pos);
-	auto fPart = data.substr(pos + 1);
+	auto newTPart = data.substr(0, multiplyPos);
+	auto fPart = data.substr(multiplyPos + 1);
 	auto dataCopy = data;
 	data.clear();
 

@@ -5,15 +5,19 @@
 
 bool executeExp(std::string& data)
 {
-	auto const pos = data.find(terminal_symbols::PLUS);
+	removeBlanks(data);
+
+	auto const plusPos = data.find(terminal_symbols::PLUS);
+	auto const multiplyPos = data.find(terminal_symbols::MULTIPLY);
+
 	auto const tHandler = getHandler(non_terminal_symbols::T);
-	if (pos == std::string::npos)
+	if (plusPos == std::string::npos || multiplyPos < plusPos)
 	{
 		return tHandler(data);
 	}
 
-	auto newExpPart = data.substr(0, pos);
-	auto tPart = data.substr(pos + 1);
+	auto newExpPart = data.substr(0, plusPos);
+	auto tPart = data.substr(plusPos + 1);
 	auto dataCopy = data;
 	data.clear();
 
