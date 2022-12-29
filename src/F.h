@@ -5,10 +5,10 @@
 
 bool executeF(std::string& data)
 {
-	auto const minusPos = data.find(terminal_symbols::MINUS);
-	if (minusPos != std::string::npos)
+	removeBlanks(data);
+	if (data.starts_with(terminal_symbols::MINUS))
 	{
-		auto fPart = data.substr(minusPos);
+		auto fPart = data.substr(1);
 		data.clear();
 		return executeF(fPart);
 	}
