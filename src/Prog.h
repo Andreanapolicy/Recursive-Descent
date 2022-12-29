@@ -28,6 +28,7 @@ bool executeProg(std::string& data)
 					{
 						// "end "
 						data.erase(0, terminal_symbols::END.size());
+						removeBlanks(data);
 						return data.empty();
 					}
 				}

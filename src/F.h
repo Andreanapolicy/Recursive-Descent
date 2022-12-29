@@ -9,6 +9,7 @@ bool executeF(std::string& data)
 	if (minusPos != std::string::npos)
 	{
 		auto fPart = data.substr(minusPos);
+		data.clear();
 		return executeF(fPart);
 	}
 
@@ -17,6 +18,7 @@ bool executeF(std::string& data)
 	if (openingBracePos != std::string::npos && closingBracePos != std::string::npos)
 	{
 		auto expPart = data.substr(openingBracePos, closingBracePos - openingBracePos);
+		data.clear();
 		auto const expHandler = getHandler(non_terminal_symbols::EXP);
 		return expHandler(expPart);
 	}

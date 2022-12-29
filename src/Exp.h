@@ -14,7 +14,8 @@ bool executeExp(std::string& data)
 
 	auto newExpPart = data.substr(0, pos);
 	auto tPart = data.substr(pos);
+	auto dataCopy = data;
+	data.clear();
 
-
-	return executeExp(newExpPart) && tHandler(tPart) || tHandler(data);
+	return executeExp(newExpPart) && tHandler(tPart) || tHandler(dataCopy);
 }

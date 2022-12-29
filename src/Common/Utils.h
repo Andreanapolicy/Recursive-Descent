@@ -1,9 +1,16 @@
 #pragma once
 #include <string>
 
-bool isAlphaNumeric(const std::string& data)
+bool isAlphaNumeric(std::string& data)
 {
-	return true;
+	auto result = std::find_if(
+					  data.begin(),
+					  data.end(),
+					  [](char c) { return !(std::isalpha(c) || std::isdigit(c) || (c == ' ')); })
+		== data.end();
+	data.clear();
+
+	return result;
 }
 
 bool isSpace(char ch)

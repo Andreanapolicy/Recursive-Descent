@@ -30,6 +30,7 @@ bool executeAssign(std::string& data)
 	{
 		throw std::runtime_error("Exp is not correct");
 	}
+	data.erase(0, semicolonPos + 1);
 	removeBlanks(data);
 
 	return data.empty();

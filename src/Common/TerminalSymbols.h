@@ -1,8 +1,8 @@
 #pragma once
+#include "Utils.h"
 #include <algorithm>
 #include <cctype>
 #include <string>
-#include "Utils.h"
 
 namespace terminal_symbols
 {
@@ -28,26 +28,31 @@ const std::string READ = "READ";
 const std::string COMMA = ",";
 } // namespace terminal_symbols
 
-bool executeId(const std::string& data)
+bool executeId(std::string& data)
 {
 	if (data.length() == 0)
 	{
+		data.clear();
 		return false;
 	}
 
 	if (!std::isalpha(data[0]))
 	{
+		data.clear();
 		return false;
 	}
 
-	return isAlphaNumeric(data);
+	auto result = isAlphaNumeric(data);
+	data.clear();
+	return result;
 }
 
-bool executeNum(const std::string& data)
+bool executeNum(std::string& data)
 {
 	try
 	{
 		std::stoi(data);
+		data.clear();
 		return true;
 	}
 	catch (...)

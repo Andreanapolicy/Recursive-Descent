@@ -14,6 +14,8 @@ bool executeT(std::string& data)
 
 	auto newTPart = data.substr(0, pos);
 	auto fPart = data.substr(pos);
+	auto dataCopy = data;
+	data.clear();
 
-	return executeT(newTPart) && fHandler(fPart) || fHandler(data);
+	return executeT(newTPart) && fHandler(fPart) || fHandler(dataCopy);
 }
