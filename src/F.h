@@ -23,5 +23,5 @@ bool executeF(std::string& data)
 		return expHandler(expPart);
 	}
 
-	return executeId(data) || executeNum(data);
+	return data == "num" || data == "id";
 }

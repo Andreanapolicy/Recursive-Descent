@@ -27,36 +27,3 @@ const std::string WRITE = "WRITE";
 const std::string READ = "READ";
 const std::string COMMA = ",";
 } // namespace terminal_symbols
-
-bool executeId(std::string& data)
-{
-	if (data.length() == 0)
-	{
-		data.clear();
-		return false;
-	}
-
-	if (!std::isalpha(data[0]))
-	{
-		data.clear();
-		return false;
-	}
-
-	auto result = isAlphaNumeric(data);
-	data.clear();
-	return result;
-}
-
-bool executeNum(std::string& data)
-{
-	try
-	{
-		std::stoi(data);
-		data.clear();
-		return true;
-	}
-	catch (...)
-	{
-		return false;
-	}
-}
