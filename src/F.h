@@ -32,6 +32,11 @@ bool executeF(std::string& data)
 {
 	removeBlanks(data);
 
+	if (data.at(0) == '-')
+	{
+		data = data.substr(1);
+	}
+
 	if (data.at(0) == '(')
 	{
 		auto const expHandler = getHandler(non_terminal_symbols::EXP);
