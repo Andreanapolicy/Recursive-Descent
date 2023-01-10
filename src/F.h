@@ -32,7 +32,7 @@ bool executeF(std::string& data)
 {
 	removeBlanks(data);
 
-	if (data.at(0) == '-')
+	if (data.at(0) == '-' && data.at(1) == '(')
 	{
 		data = data.substr(1);
 	}
