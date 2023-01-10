@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Common/IFunction.h"
 #include "Common/NonTerminalSymbols.h"
 #include "Common/TerminalSymbols.h"
@@ -7,19 +8,25 @@ bool executeT(std::string& data)
 {
 	removeBlanks(data);
 
-	auto const plusPos = data.find(terminal_symbols::PLUS);
-	auto const multiplyPos = data.find(terminal_symbols::MULTIPLY);
-
 	auto const fHandler = getHandler(non_terminal_symbols::F);
-	if (multiplyPos == std::string::npos || multiplyPos > plusPos)
+	if (!fHandler(data))
 	{
-		return fHandler(data);
+		return false;
 	}
 
-	auto newTPart = data.substr(0, multiplyPos);
-	auto fPart = data.substr(multiplyPos + 1);
-	auto dataCopy = data;
-	data.clear();
+	while (data.length() > 0)
+	{
+		if (data.at(0) != '*')
+		{
+			break;
+		}
 
-	return executeT(newTPart) && fHandler(fPart) || fHandler(dataCopy);
+		data = data.substr(1);
+		if (!fHandler(data))
+		{
+			return false;
+		}
+	}
+
+	return true;
 }

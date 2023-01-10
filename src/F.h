@@ -1,27 +1,57 @@
 #pragma once
+
 #include "Common/IFunction.h"
 #include "Common/NonTerminalSymbols.h"
 #include "Common/TerminalSymbols.h"
+
+bool numOrId(std::string& data)
+{
+	std::string identifier;
+	std::size_t i = 0;
+
+	if (data.at(0) == '-')
+	{
+		data = data.substr(1);
+	}
+
+	while (i < data.length() && std::isalpha(data.at(i)))
+	{
+		identifier += data.at(i++);
+	}
+
+	if (identifier == "num" || identifier == "id")
+	{
+		data = data.substr(identifier.length());
+		return true;
+	}
+
+	return false;
+}
 
 bool executeF(std::string& data)
 {
 	removeBlanks(data);
 
-	if (data.starts_with(terminal_symbols::MINUS))
+	if (data.at(0) == '(')
 	{
-		auto fPart = data.substr(1);
-		data.clear();
-		return executeF(fPart);
-	}
-
-	auto const closingBracePos = data.find_last_of(terminal_symbols::CLOSING_BRACE);
-	if (data.starts_with(terminal_symbols::OPENING_BRACE) && closingBracePos != std::string::npos)
-	{
-		auto expPart = data.substr(1, closingBracePos - 1);
-		data.clear();
 		auto const expHandler = getHandler(non_terminal_symbols::EXP);
-		return expHandler(expPart);
+
+		data = data.substr(1);
+		if (!expHandler(data))
+		{
+			return false;
+		}
+
+		if (!data.empty() && data.at(0) == ')')
+		{
+			data = data.substr(1);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
-	return data == "num" || data == "id";
+	return numOrId(data);
 }
