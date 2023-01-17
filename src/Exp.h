@@ -16,7 +16,7 @@ bool executeExp(std::string& data)
 
 	while (data.length() > 0)
 	{
-		if (data.at(0) != '+')
+		if (data.at(0) != terminal_symbols::PLUS)
 		{
 			break;
 		}

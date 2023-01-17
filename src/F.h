@@ -9,7 +9,7 @@ bool numOrId(std::string& data)
 	std::string identifier;
 	std::size_t i = 0;
 
-	if (data.at(0) == '-')
+	if (data.at(0) == terminal_symbols::MINUS)
 	{
 		data = data.substr(1);
 	}
@@ -32,12 +32,12 @@ bool executeF(std::string& data)
 {
 	removeBlanks(data);
 
-	if (data.at(0) == '-' && data.at(1) == '(')
+	if (data.at(0) == '-' && data.at(1) == terminal_symbols::OPENING_BRACE)
 	{
 		data = data.substr(1);
 	}
 
-	if (data.at(0) == '(')
+	if (data.at(0) == terminal_symbols::OPENING_BRACE)
 	{
 		auto const expHandler = getHandler(non_terminal_symbols::EXP);
 
@@ -47,7 +47,7 @@ bool executeF(std::string& data)
 			return false;
 		}
 
-		if (!data.empty() && data.at(0) == ')')
+		if (!data.empty() && data.at(0) == terminal_symbols::CLOSING_BRACE)
 		{
 			data = data.substr(1);
 			return true;

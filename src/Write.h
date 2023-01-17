@@ -19,7 +19,7 @@ bool executeWrite(std::string& data)
 	{
 		throw std::runtime_error("Cannot find opening brace in write");
 	}
-	data.erase(0, terminal_symbols::OPENING_BRACE.size());
+	data.erase(0, 1);
 
 	auto const bracePos = data.find(terminal_symbols::CLOSING_BRACE);
 	if (bracePos == std::string::npos)
