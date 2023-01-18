@@ -4,14 +4,13 @@
 #include "Common/NonTerminalSymbols.h"
 #include "Common/TerminalSymbols.h"
 
-// <PROG>->PROG id <VAR> begin <LISTST> end
-
 bool executeProg(std::string& data)
 {
+	removeBlanks(data);
+
 	if (data.starts_with(terminal_symbols::PROG))
 	{
-		// "PROG id "
-		data.erase(0, terminal_symbols::PROG.size() + 1 + terminal_symbols::ID.size() + 1);
+		data.erase(0, terminal_symbols::PROG.size() + 1 + terminal_symbols::ID.size());
 
 		if (getHandler(non_terminal_symbols::VAR)(data))
 		{

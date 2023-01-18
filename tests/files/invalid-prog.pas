@@ -1,4 +1,4 @@
-PROG id
+PRO id
 VAR id, id, id : int;
 BEGIN
 READ(id,id);
