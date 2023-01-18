@@ -1,4 +1,7 @@
 #pragma once
+
+#include "Common/TerminalSymbols.h"
+#include "Exp.h"
 #include <string>
 
 bool executeAssign(std::string& data)
@@ -14,7 +17,7 @@ bool executeAssign(std::string& data)
 
 	if (!data.starts_with(terminal_symbols::ASSIGMENT))
 	{
-		throw std::runtime_error("Cannot find assigment symbol in assign");
+		throw std::runtime_error("Cannot find assignment symbol in assign");
 	}
 	data.erase(0, terminal_symbols::ASSIGMENT.size());
 	removeBlanks(data);

@@ -1,7 +1,8 @@
 #pragma once
-#include "./Common/IFunction.h"
-#include "./Common/TerminalSymbols.h"
-#include "./Common/NonTerminalSymbols.h"
+
+#include "Common/IFunction.h"
+#include "Common/NonTerminalSymbols.h"
+#include "Common/TerminalSymbols.h"
 #include <string>
 
 // int|float|bool|string

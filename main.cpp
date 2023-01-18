@@ -1,32 +1,7 @@
-#include "src/Common/IFunction.h"
-#include "src/Common/NonTerminalSymbols.h"
+#include "src/Common/Args.h"
+#include "src/Parser.h"
 #include <fstream>
 #include <iostream>
-
-namespace
-{
-struct Args
-{
-	std::string inputFilename;
-};
-
-Args ParseArgs(int argc, char** argv)
-{
-	if (argc != 2)
-	{
-		throw std::invalid_argument("invalid parameters");
-	}
-
-	return {
-		.inputFilename = argv[1]
-	};
-}
-
-bool execute(std::string& data)
-{
-	return getHandler(non_terminal_symbols::PROG)(data);
-}
-} // namespace
 
 int main(int argc, char** argv)
 {
@@ -40,10 +15,8 @@ int main(int argc, char** argv)
 			throw std::runtime_error("Cannot open input file");
 		}
 		std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
-		if (!execute(data))
-		{
-			throw std::runtime_error("Program is not correct");
-		}
+
+		Parser::Parse(data);
 	}
 	catch (std::exception const& e)
 	{

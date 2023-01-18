@@ -1,7 +1,8 @@
 #pragma once
-#include "./Common/IFunction.h"
-#include "./Common/TerminalSymbols.h"
-#include "./Common/NonTerminalSymbols.h"
+
+#include "Common/IFunction.h"
+#include "Common/NonTerminalSymbols.h"
+#include "Common/TerminalSymbols.h"
 
 bool executeSt(std::string& data)
 {
