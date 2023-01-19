@@ -29,6 +29,7 @@ TEST_CASE("invalid end2end cases")
 		"invalid-empty-idlist",
 		"invalid-wrong-id",
 		"invalid-unbalanced-parentheses",
+		"invalid-exp-two-signs",
 		"invalid-no-semicolon");
 
 	std::ifstream input("files/" + testFile + ".txt");
