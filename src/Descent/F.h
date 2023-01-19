@@ -37,6 +37,14 @@ bool executeF(std::string& data)
 		data = data.substr(1);
 	}
 
+
+	if (data.at(0) == '-')
+	{
+		data = data.substr(1);
+		auto const expHandler = getHandler(non_terminal_symbols::F);
+		return expHandler(data);
+	}
+
 	if (data.at(0) == terminal_symbols::OPENING_BRACE)
 	{
 		auto const expHandler = getHandler(non_terminal_symbols::EXP);
