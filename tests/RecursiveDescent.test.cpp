@@ -5,9 +5,12 @@
 
 TEST_CASE("valid end2end cases")
 {
-	std::string const testFile = GENERATE("default");
+	std::string const testFile = GENERATE(
+		"valid-example",
+		"valid-string-type",
+		"valid-exp-with-parentheses");
 
-	std::ifstream input("files/" + testFile + ".pas");
+	std::ifstream input("files/" + testFile + ".txt");
 	std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
 
 	WHEN("parsing a file")
@@ -21,9 +24,14 @@ TEST_CASE("valid end2end cases")
 
 TEST_CASE("invalid end2end cases")
 {
-	std::string const testFile = GENERATE("invalid-prog");
+	std::string const testFile = GENERATE(
+		"invalid-prog",
+		"invalid-empty-idlist",
+		"invalid-wrong-id",
+		"invalid-unbalanced-parentheses",
+		"invalid-no-semicolon");
 
-	std::ifstream input("files/" + testFile + ".pas");
+	std::ifstream input("files/" + testFile + ".txt");
 	std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
 
 	std::stringstream output;
