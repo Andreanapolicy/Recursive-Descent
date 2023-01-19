@@ -2,6 +2,6 @@ PROG id
 VAR id, id, id : int;
 BEGIN
 READ(id,id);
-id := (num + num * (num + num ) * num);
+id := ((((((((((((num+num*(num+num)*num))))))))))));
 WRITE(id,id,id);
 END
