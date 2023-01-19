@@ -9,7 +9,7 @@ TEST_CASE("valid end2end cases")
 		"valid-example",
 		"valid-string-type",
 		"valid-exp-with-parentheses",
-		"valid-exp-with-lot-of-brackets",
+		"valid-exp-with-lot-of-brackets"
 	);
 
 	std::ifstream input("files/" + testFile + ".txt");
@@ -32,7 +32,9 @@ TEST_CASE("invalid end2end cases")
 		"invalid-wrong-id",
 		"invalid-unbalanced-parentheses",
 		"invalid-exp-two-signs",
-		"invalid-no-semicolon");
+		"invalid-no-semicolon",
+		"invalid-exp-with-single-plus"
+		);
 
 	std::ifstream input("files/" + testFile + ".txt");
 	std::string data((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
