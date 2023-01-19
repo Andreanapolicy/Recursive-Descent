@@ -33,7 +33,8 @@ TEST_CASE("invalid end2end cases")
 		"invalid-unbalanced-parentheses",
 		"invalid-exp-two-signs",
 		"invalid-no-semicolon",
-		"invalid-exp-with-single-plus"
+		"invalid-exp-with-single-plus",
+		"invalid-exp-two-same-brackets"
 		);
 
 	std::ifstream input("files/" + testFile + ".txt");
